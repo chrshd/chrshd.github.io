@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8">
+        <meta name="robots" content="noindex, nofollow" />
+
+        {% if page.url == "/" %}
+            <title>{{ site.title }} — {{ site.subtitle }}</title>
+        {% else %}
+            <title>{{ page.title }} — {{ site.title }}</title>
+        {% endif %}
+
+        <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+    </head>
+
+    <body class="bg-amber-50 text-stone-900 container mx-auto px-6 lg:px-12">
+
+        {% include header.html %}
+
+        <main class="grid gap-y-10 md:gap-y-20 mb-12 md:mb-20">
+           <div class="
+                z-10 font-light py-12 lg:py-24 relative 
+                after:content-[''] after:inset-0
+                after:bg-[radial-gradient(#cbd5e1_10%,transparent_10%),radial-gradient(#cbd5e1_10%,transparent_10%)] after:bg-[length:16px_16px] after:bg-[position:0_0,8px_8px]
+                after:absolute after:bottom-0 after:left-1/2 after:top-0
+                after:-translate-x-1/2 after:w-screen after:z-0" 
+            >
+                {% if page.title %}
+                    <h1 class="relative text-2xl lg:text-3xl z-30 font-medium">
+                        <span class="bg-amber-50">
+                            {{ page.title }}
+                        </span>
+                    </h1>
+                {% endif %}
+
+                {% if page.intro %}
+                    <p class="relative lg:w-2/3 z-20 text-2xl lg:text-3xl font-medium text-stone-500">
+                       <span class="bg-amber-50">
+                            {{ page.intro  }}
+                        </span> 
+                    </p>
+                {% endif %}
+
+                {% if page.categories %}
+                    <div class="mt-6">
+                        {% include category-pills.html categories=page.categories %}
+                    </div>
+                {% endif %}
+            </div>
+            
+            {{ content }}
+        </main>
+        
+        {% include footer.html %}
+
+    </body>
+
+</html>
