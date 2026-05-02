@@ -1,0 +1,44 @@
+---
+layout: default
+---
+
+{% for section in page.sections %}
+    {% if section.image %}
+        <div class="mx-auto grid gap-6 md:gap-12">
+            {% for images in section.image %}
+                <img src="{{ images }}" class="w-full xl:max-w-4xl">
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    {% if section.heading or section.text %}
+        <div class="w-full max-w-none md:max-w-xl mx-auto prose prose-sm md:prose-base font-light">            
+            {% if section.heading %}
+                <h2 class="font-semibold text-base md:text-lg mb-6 lg:mb-12 not-prose">
+                    {{ section.heading }}
+                </h2>
+            {% endif %}
+
+            {{ section.text | markdownify }}
+        </div>
+    {% endif %}
+{% endfor %}
+
+<div class="border-t-2 border-stone-300 border-dotted pt-6">
+    <h2 class="font-semibold relative text-lg mb-6 lg:mb-12">Projects</h2>
+
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-3">
+        {% assign sorted_projects = site.projects | sort: "order" %}
+        {% for project in sorted_projects %}
+            <div class="relative group">  
+                <img class="aspect-group-hover:opacity-90 transition mb-3" src="{{ project.thumbnail | relative_url }}">
+
+                <h2 class="font-semibold text-sm md:text-base underline decoration-dotted decoration-2 group-hover:decoration-0 group-hover:no-underline group-hover:text-stone-500 transition">
+                    {{ project.title }}
+                </h2>
+
+                <a class="absolute inset-0 z-10" href="{{ project.url | relative_url }}"></a>
+            </div>
+        {% endfor %}
+    </div>
+</div>

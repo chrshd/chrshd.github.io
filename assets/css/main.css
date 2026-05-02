@@ -1,0 +1,53 @@
+---
+---
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 300 500 600;
+  font-display: swap;
+  src: url("../fonts/Inter-VariableFont_opsz,wght.ttf") format("truetype");
+}
+
+@layer base {
+
+  *:focus-visible {
+    @apply ring-2 ring-stone-500 outline-none ring-offset-4;
+  }
+  
+}
+
+.prose {
+  --tw-prose-bullets: theme('colors.stone.500');
+  --tw-prose-body: theme('colors.stone.900');
+
+  a {
+      color: theme(colors.stone.900);            
+      @apply decoration-dotted decoration-2 hover:decoration-0 hover:no-underline;
+  }
+
+  ul {
+    margin-bottom: 2.5em;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    li {
+      padding-left: 1.5em;
+      margin: 1em 0;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &::marker {
+        content: "—";
+      }
+    }
+  }
+}

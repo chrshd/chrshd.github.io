@@ -1,0 +1,21 @@
+---
+layout: default
+---
+{% assign sorted_projects = site.projects | sort: "order" %}
+{% for project in sorted_projects %}
+    <div class="grid md:grid-cols-2 relative group transition duration-700 ease-out">  
+        <img class="group-hover:opacity-90 transition" src="{{ project.thumbnail | relative_url }}" alt="{{ project.title }}">
+
+        <div class="flex flex-col gap-10 font-light justify-between p-5 lg:p-10 bg-[radial-gradient(#cbd5e1_10%,transparent_10%),radial-gradient(#cbd5e1_10%,transparent_10%)] bg-[length:16px_16px] bg-[position:0_0,8px_8px]">
+            <h2 class="lg:text-2xl font-semibold underline decoration-dotted decoration-2 group-hover:decoration-0 group-hover:no-underline group-hover:text-stone-500 transition ">
+                <span class="bg-amber-50">
+                    {{ project.title }}
+                </span>
+            </h2>
+                  
+            {% include category-pills.html categories=project.categories %}        
+        </div>
+        
+        <a class="absolute inset-0 z-10" href="{{ project.url | relative_url }}"></a>
+    </div>
+{% endfor %}
