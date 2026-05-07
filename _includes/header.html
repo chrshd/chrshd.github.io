@@ -10,15 +10,13 @@
     <nav>
         <ul class="list-none flex gap-6">
             {% for nav in site.data.navigation %}
-                <li 
-                    class="
-                        font-semibold  decoration-2 decoration-dotted hover:underline hover:text-stone-500 transition
-                        {% if nav.url == page.url %} underline text-stone-500 {% endif %}"
-                    >
+                <li class="
+                    font-semibold decoration-2 decoration-dotted hover:underline hover:text-stone-500 transition
+                    {% if nav.url == page.url %} underline text-stone-500 {% endif %}"
+                >
                     <a href="{{ nav.url }}">{{ nav.text }}</a>
                 </li>
             {% endfor %}
         </ul>
     </nav>
-
 </header>

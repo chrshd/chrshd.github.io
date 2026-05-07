@@ -8,9 +8,25 @@
 @font-face {
   font-family: "Inter";
   font-style: normal;
-  font-weight: 300 500 600;
+  font-weight: 300;
   font-display: swap;
-  src: url("../fonts/Inter-VariableFont_opsz,wght.ttf") format("truetype");
+  src: url("../fonts/inter-v20-latin-300.woff2") format("truetype");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fonts/inter-v20-latin-500.woff2") format("truetype");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fonts/inter-v20-latin-600.woff2") format("truetype");
 }
 
 @layer base {
@@ -19,6 +35,10 @@
     @apply ring-2 ring-stone-500 outline-none ring-offset-4;
   }
   
+}
+
+h1, h2 { 
+  @apply tracking-tight;
 }
 
 .prose {

@@ -40,7 +40,7 @@
                 {% endif %}
 
                 {% if page.intro %}
-                    <p class="relative lg:w-2/3 z-20 text-2xl lg:text-3xl font-medium text-stone-500">
+                    <p class="relative lg:w-2/3 z-20 text-2xl lg:text-3xl font-medium text-stone-500 tracking-tight">
                        <span class="bg-amber-50">
                             {{ page.intro  }}
                         </span> 
@@ -55,6 +55,10 @@
             </div>
             
             {{ content }}
+
+            {% unless page.layout == "projects" %}
+                {% include project-feed.html %}
+            {% endunless %}
         </main>
         
         {% include footer.html %}
