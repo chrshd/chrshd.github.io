@@ -4,7 +4,6 @@ order: 6
 title: Test
 categories: 
   - Test
-thumbnail: 
 
 sections:
   
