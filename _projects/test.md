@@ -6,9 +6,6 @@ categories:
   - Test
 
 sections:
-  
-  - text: |
-    Hello Dale
+  - text: Hello Dale
 
-  
 ---
